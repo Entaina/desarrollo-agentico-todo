@@ -1,0 +1,7 @@
+.git
+bin
+tmp
+Dockerfile
+compose.yaml
+.devcontainer
+.github

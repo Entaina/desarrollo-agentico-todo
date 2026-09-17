@@ -1,0 +1,228 @@
+/* Reset mínimo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p,
+ul,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-text: #1f2933;
+  --color-text-muted: #616e7c;
+  --color-background: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #cbd2d9;
+  --color-primary: #2f6f4f;
+  --color-primary-dark: #285e43;
+  --color-danger: #ab3434;
+  --color-danger-dark: #8f2b2b;
+  --color-error-background: #fbeaea;
+  --color-success-background: #e7f2ec;
+  --color-focus: #1d5dbf;
+
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-large: 1.75rem;
+
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2.5rem;
+
+  --radius: 6px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-m);
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--space-l);
+}
+
+/* Mensajes flash */
+.flash {
+  padding: var(--space-s) var(--space-m);
+  margin-bottom: var(--space-m);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.flash-success {
+  background-color: var(--color-success-background);
+  border-color: var(--color-primary);
+}
+
+/* Formulario de nueva tarea */
+.new-task {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-m);
+  margin-bottom: var(--space-l);
+}
+
+.new-task label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-s);
+}
+
+.new-task-row {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.new-task input[type="text"] {
+  flex: 1;
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.field-error {
+  color: var(--color-danger);
+  background-color: var(--color-error-background);
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius);
+  margin-top: var(--space-s);
+}
+
+/* Botones */
+.button {
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-background);
+}
+
+.button-primary {
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.button-danger {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.button-danger:hover {
+  color: #ffffff;
+  background-color: var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+}
+
+/* Foco visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Lista de tareas */
+.task-list {
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-m);
+  margin-bottom: var(--space-s);
+}
+
+.task-title {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.task-completed .task-title {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.task-status {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-s);
+  white-space: nowrap;
+}
+
+.task-actions {
+  display: flex;
+  gap: var(--space-s);
+}
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-m);
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-l) var(--space-s);
+  }
+
+  .new-task-row {
+    flex-direction: column;
+  }
+
+  .task {
+    flex-wrap: wrap;
+  }
+
+  .task-title {
+    flex-basis: 100%;
+  }
+}

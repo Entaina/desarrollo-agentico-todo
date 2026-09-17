@@ -1,0 +1,26 @@
+[[scenario]]
+name = "tres tareas"
+
+  [[scenario.table]]
+    name = "tasks"
+
+    [[scenario.table.row]]
+      id = "<%= uuid() %>"
+      title = "Comprar material de oficina"
+      completed = false
+      created_at = "<%= now() %>"
+      updated_at = "<%= now() %>"
+
+    [[scenario.table.row]]
+      id = "<%= uuid() %>"
+      title = "Llamar al gestor"
+      completed = false
+      created_at = "<%= now() %>"
+      updated_at = "<%= now() %>"
+
+    [[scenario.table.row]]
+      id = "<%= uuid() %>"
+      title = "Publicar la oferta de empleo"
+      completed = true
+      created_at = "<%= now() %>"
+      updated_at = "<%= now() %>"

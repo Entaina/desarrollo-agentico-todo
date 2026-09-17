@@ -1,0 +1,11 @@
+services:
+  workspace:
+    image: mcr.microsoft.com/devcontainers/go:1.26-bookworm
+    volumes:
+      - ..:/workspaces/desarrollo-agentico-todo:cached
+    command: sleep infinity
+    environment:
+      DB_HOST: db
+    depends_on:
+      db:
+        condition: service_healthy
